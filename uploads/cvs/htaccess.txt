@@ -1,0 +1,15 @@
+# ============================================================
+# SECURITY: Block direct access to CV files in uploads folder
+# Users can NEVER directly access CVs via URL
+# All downloads go through download-cv.php which checks admin
+# ============================================================
+
+# Deny all direct HTTP access to this folder
+Order Deny,Allow
+Deny from all
+
+# Block execution of any PHP or script files
+<FilesMatch "\.(php|php3|php4|php5|phtml|pl|py|jsp|asp|htm|shtml|sh|cgi)$">
+    Order Deny,Allow
+    Deny from all
+</FilesMatch>
